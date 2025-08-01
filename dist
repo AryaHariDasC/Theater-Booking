@@ -1,0 +1,27 @@
+"use strict";
+// import { Request, Response, NextFunction } from 'express';
+// import jwt from 'jsonwebtoken';
+// import { CustomJwtPayload } from '../interface/userInterface';
+// export const authMiddleware = (
+//     req: Request,
+//     res: Response,
+//     next: NextFunction
+// ): void => {
+//     try {
+//         const authHeader = req.headers.authorization;
+//         // Only use Authorization header, no cookies
+//         if (!authHeader || !authHeader.startsWith('Bearer ')) {
+//             res.status(401).json({ message: 'No token provided in Authorization header' });
+//             return;
+//         }
+//         const token = authHeader.split(' ')[1];
+//         // Verify token
+//         const decoded = jwt.verify(token, process.env.SECRET as string) as CustomJwtPayload;
+//         // Attach decoded user info to req
+//         req.user = decoded;
+//         next();
+//     } catch (error) {
+//         res.status(401).json({ message: 'Invalid or expired token' });
+//         return;
+//     }
+// };
