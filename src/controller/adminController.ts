@@ -59,7 +59,7 @@ export const getTheaterController = async (req: Request<{}, {}, ITheater>) => {
     const { id } = (req as any).user
     const adminId = id;
     const result = await GetTheater(adminId)
-    return { statusCode: statusCode.OK, message: "Theater fetchged successfully", data: result }
+    return { statusCode: statusCode.OK, message: "Theater fetched successfully", data: result }
   }
   catch (error: any) {
     return { statusCode: statusCode.INTERNAL_ERROR, message: error.message }
@@ -71,7 +71,7 @@ export const getScreenController = async (req: Request<{}, {}, Iscreen>) => {
   try {
     const screenData = req.body
     const result = await getScreens(screenData)
-    return { statusCode: statusCode.OK, message: "Screens fetchged successfully", data: result }
+    return { statusCode: statusCode.OK, message: "Screens fetched successfully", data: result }
   }
   catch (error: any) {
     return { statusCode: statusCode.INTERNAL_ERROR, message: error.message }
