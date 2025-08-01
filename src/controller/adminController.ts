@@ -7,7 +7,6 @@ import {
   getFlexibleReport
 } from "../service/adminSevice";
 import { statusCode } from "../helper/statusCode";
-import { userModel } from "../models/userModel";
 import { Iscreen } from "../interface/screenInterface";
 import { CreateSeatRequest } from "../interface/seatInterface"
 import { ControllerResponse } from "../interface/userInterface";

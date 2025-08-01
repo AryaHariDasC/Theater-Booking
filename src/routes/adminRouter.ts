@@ -4,13 +4,14 @@ import { authMiddleware, authorizeRoles } from "../middleware/authMiddleware";
 import {
      createTheaterController, createScreenController, getTheaterController, getScreenController, createAndUpdateSeatController,
      getSeatsByScreenIdController, createMovieController, getMovieByStatusController, createOrUpdateShowController,
-     getActiveShowsController,verifyTicketTokenController,bookingStatusController,userAbleStatusController,
-     theaterStatusController,screenStatusController,showStatusController,movieStatusController,ReportController     
+     getActiveShowsController, verifyTicketTokenController, bookingStatusController, userAbleStatusController,
+     theaterStatusController, screenStatusController, showStatusController, movieStatusController, ReportController
 } from "../controller/adminController";
 import { createThV, createSCV, createSeatV, createMovieV, crateShowV, bookV } from "../validator/index";
+
 const router = express.Router();
 
-router.post("/createTheater", createThV.theaterRegisterValidator,  response(createTheaterController));
+router.post("/createTheater", createThV.theaterRegisterValidator, response(createTheaterController));
 
 router.post('/createScreen', createSCV.createScreenValidator, authMiddleware, authorizeRoles(['admin']), response(createScreenController));
 
@@ -30,20 +31,20 @@ router.post("/createShow", crateShowV.showCreateValidator, authMiddleware, autho
 
 router.get("/getAllShows", authMiddleware, response(getActiveShowsController));
 
-router.post("/verifyToken",authMiddleware,authorizeRoles(['admin']),response(verifyTicketTokenController));
+router.post("/verifyToken", authMiddleware, authorizeRoles(['admin']), response(verifyTicketTokenController));
 
-router.put("/statusChangeTheater",authMiddleware,authorizeRoles(['admin']),response(theaterStatusController));
+router.put("/statusChangeTheater", authMiddleware, authorizeRoles(['admin']), response(theaterStatusController));
 
-router.put("/statusChangeShow",authMiddleware,authorizeRoles(['admin']),response(showStatusController));
+router.put("/statusChangeShow", authMiddleware, authorizeRoles(['admin']), response(showStatusController));
 
-router.put("/statusChangeScreen",authMiddleware,authorizeRoles(['admin']),response(screenStatusController));
+router.put("/statusChangeScreen", authMiddleware, authorizeRoles(['admin']), response(screenStatusController));
 
-router.put("/statusChangeMovie",authMiddleware,authorizeRoles(['admin']),response(movieStatusController));
+router.put("/statusChangeMovie", authMiddleware, authorizeRoles(['admin']), response(movieStatusController));
 
-router.put("/statusChangeBooking",authMiddleware,authorizeRoles(['admin']),response(bookingStatusController));
+router.put("/statusChangeBooking", authMiddleware, authorizeRoles(['admin']), response(bookingStatusController));
 
-router.put("/statusChangeUser",authMiddleware,authorizeRoles(['admin']),response(userAbleStatusController));
+router.put("/statusChangeUser", authMiddleware, authorizeRoles(['admin']), response(userAbleStatusController));
 
-router.get("/getReport",authMiddleware,authorizeRoles(['admin']),response(ReportController))
+router.get("/getReport", authMiddleware, authorizeRoles(['admin']), response(ReportController))
 
 export default router;
