@@ -2,7 +2,7 @@ import { userModel } from "../models/userModel";
 import { Iuser } from "../interface/userInterface";
 import { fetchUserDetailsByEmail, hashPassword,comparePassword } from "../helper/commonHelper";
 import jwt from 'jsonwebtoken'
-import { log } from "console";
+
 
 export const createUser = async (userData: Iuser) => {
     try{

@@ -1,12 +1,13 @@
 import { Types } from "mongoose";
 export interface Iuser{
-_id:Types.ObjectId
+_id?: string;
 name:string,
 email:string,
-phoneNo:number,
+phoneNo:string,
 password:string,
 role:"admin"|"client",
-able:boolean
+able:boolean,
+otp?:string
 }
 export interface ControllerResponse {
   statusCode: number;
